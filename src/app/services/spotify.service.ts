@@ -6,7 +6,6 @@ import { map } from 'rxjs/operators';
 export class SpotifyService
 {
     private searchUrl: string;
-
     private client_id ='996080937ebb4594a0979146c9c0c121';
     private client_secret = '0bda3cfd213c4622bc6c562586568ec8';
     private access_token:string;
@@ -19,9 +18,6 @@ export class SpotifyService
     }
     getToken()
     {
-        // let params : URLSearchParams = new URLSearchParams();
-        // params.set('grant_type' , 'client_credentials');
-        // let body = params.toString();
          var params = ('grant_type=client_credentials');
  
          var headers = new Headers();
