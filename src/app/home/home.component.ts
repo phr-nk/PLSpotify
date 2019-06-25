@@ -1,14 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SpotifyService } from "../services/spotify.service";
+import {Artist} from "../../Artist";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers:[SpotifyService] 
 })
 export class HomeComponent implements OnInit {
-
-  
-  constructor() { }
+  searchStr:string;
+  searchRes:Artist[]; //result of query
+  constructor(private _spotifyService:SpotifyService) { }
+  searchMusic(){
+    this._spotifyService.getToken()
+      .subscribe(res => {
+          this._spotifyService.searchMusic(this.searchStr ,'artist' , res.access_token)
+            .subscribe(res=> {
+              this.searchRes =res.artists.items;
+         })
+      })
+    
+ }  
 
   ngOnInit() {
   }
