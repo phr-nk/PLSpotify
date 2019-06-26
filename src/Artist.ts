@@ -1,9 +1,11 @@
 import {Album} from '../src/Album';
 
-export class Artist
+export class Artist 
 {
     id:number;
     name:string;
-    genres:any;
-    ablums:Album
+    genres:any; 
+    ablums:Album;
+    numberofalbums:number;
+
 }

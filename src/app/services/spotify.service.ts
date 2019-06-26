@@ -6,6 +6,9 @@ import { map } from 'rxjs/operators';
 export class SpotifyService
 {
     private searchUrl: string;
+    private artistUrl: string;
+    private albumsUrl:string;
+    private albumUrl:string;
     private client_id ='996080937ebb4594a0979146c9c0c121';
     private client_secret = '0bda3cfd213c4622bc6c562586568ec8';
     private access_token:string;
@@ -35,6 +38,22 @@ export class SpotifyService
         headers.append('Authorization' , 'Bearer ' + token);
 
         return this._http.get(this.searchUrl ,{headers:headers}).pipe(map((res:Response) => res.json()) );
-        //return this._http.get(this.searchUrl).pipe(map(res => res.json()));
+       
+    }
+    getArtist(id:string, token:string)
+    {
+        this.artistUrl='https://api.spotify.com/v1/artists/'+id;
+        let headers = new Headers();
+        headers.append('Authorization' , 'Bearer ' + token);
+
+        return this._http.get(this.artistUrl ,{headers:headers}).pipe(map((res:Response) => res.json()) );
+    }
+    getGenreNumber(id:string,token:string)
+    {
+        this.artistUrl='https://api.spotify.com/v1/artists/'+id;
+        let headers = new Headers();
+        headers.append('Authorization' , 'Bearer ' + token);
+
+        return this._http.get(this.artistUrl ,{headers:headers}).pipe(map((res:Response) => res.json()) ); 
     }
 }

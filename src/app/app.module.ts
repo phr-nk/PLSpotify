@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { SpotifyService } from './services/spotify.service';
 import { ArtistComponent } from './artist/artist.component';
 import { ChartsModule } from 'ng2-charts';
+import { ArtistcompareComponent } from './artistcompare/artistcompare.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ChartsModule } from 'ng2-charts';
     NavbarComponent,
     HomeComponent,
     AboutComponent,
-    ArtistComponent
+    ArtistComponent,
+    ArtistcompareComponent
   ],
   imports: [
     BrowserModule,
