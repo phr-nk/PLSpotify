@@ -7,7 +7,7 @@ import { ArtistComponent } from './artist/artist.component';
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path:'about', component: AboutComponent},
-  {path: 'artist/:id', component:ArtistComponent}
+  {path: 'artist', component:ArtistComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

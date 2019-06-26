@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { SpotifyService } from './services/spotify.service';
 import { ArtistComponent } from './artist/artist.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ArtistComponent } from './artist/artist.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ChartsModule
   ],
   providers: [SpotifyService],
   bootstrap: [AppComponent]
