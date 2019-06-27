@@ -27,11 +27,12 @@ export class ArtistComponent implements OnInit
     responsive: true
   };
   public barChartLabels;
-  public barChartType = 'pie';
+  public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData;
 
   x = document.getElementById("genrecount");
+  y = document.getElementById("artist-header");
 
   ngOnInit() //when the page is opened
   {
@@ -45,8 +46,10 @@ export class ArtistComponent implements OnInit
            .subscribe(artist=> {
              this.artist = artist;
              this.genreCount = artist.genres.length;
-             this.barChartData =[ {data: [this.genreCount], label: artist.name}];
-             this.barChartLabels = ["Number Of Genres"];
+             this.barChartData =[ {data: [this.genreCount], label: "Number Of Genres"},
+                                  {data: [artist.popularity], label: 'Popularity'}
+                                ];
+             this.barChartLabels = ["Number Of Genres", 'Popularity'];
              console.log(this.artist);
           })
         })
