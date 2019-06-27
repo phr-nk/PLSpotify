@@ -7,8 +7,10 @@
             <div class="col-md-6">
                 <h1>{{artist.name}}</h1>
                 <p *ngIf="artist.genres.length > 0">
-                    Genre: <span *ngFor = "let genre of artist.genres">{{genre}}</span>
+                    Genre: <span *ngFor = "let genre of artist.genres">{{genre }}, </span>
+
                 </p>
+                <var id="genrecount"> {{artist.genres.length}}</var>
                 <p>
                     Followers: <span>{{artist.followers.total}}</span>
                 </p>
@@ -19,6 +21,15 @@
 
             </div>
         </div>
+        <div style="display: block">
+                <canvas baseChart
+                        [datasets]="barChartData"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [legend]="barChartLegend"
+                        [chartType]="barChartType">
+                </canvas>
+            </div>
     </header>
         <div class="artist-albums">
             <div class="row">

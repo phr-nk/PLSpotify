@@ -15,18 +15,28 @@ import { map } from 'rxjs/operators';
 export class ArtistComponent implements OnInit 
 {
   id:string; //id for specific artist
-  artist:Artist[];
+  artist:Artist[]; //artist object
   albums:Album[];
+
+  genreCount:number;
 
   constructor(private _spotifyService:SpotifyService,private _route:ActivatedRoute) { }
 
-  ngOnInit() 
-  {
+  public barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public barChartLabels;
+  public barChartType = 'pie';
+  public barChartLegend = true;
+  public barChartData;
 
-    let headers = new Headers();
-    headers.append('Authorization' , 'Bearer ' + this._spotifyService.getToken());
+  x = document.getElementById("genrecount");
+
+  ngOnInit() //when the page is opened
+  {
     this._route.params.pipe(
-    map(params => params['id']))
+    map(params => params['id'])) //map each parameter with id
     .subscribe((id) => { 
         console.log("ID", id)
        this._spotifyService.getToken()
@@ -34,10 +44,14 @@ export class ArtistComponent implements OnInit
           this._spotifyService.getArtist(id, data.access_token)
            .subscribe(artist=> {
              this.artist = artist;
-             console.log(this.artist)
+             this.genreCount = artist.genres.length;
+             this.barChartData =[ {data: [this.genreCount], label: artist.name}];
+             this.barChartLabels = ["Number Of Genres"];
+             console.log(this.artist);
           })
         })
     })
   }
+  getGenreCount
 
 }

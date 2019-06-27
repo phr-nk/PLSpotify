@@ -6,6 +6,6 @@ export class Artist
     name:string;
     genres:any; 
     ablums:Album;
-    numberofalbums:number;
+    numberofgenres:number;
 
 }
