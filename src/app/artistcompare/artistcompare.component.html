@@ -1,10 +1,8 @@
-
-<div style="display: block">
-    <canvas baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType">
-    </canvas>
-</div>
+<h1>Enter an artist name and press enter</h1>
+<input type="text" id="input1" (keyup.enter) ="addNames()"/>
+<p>Current Artists: </p>
+<ul>
+        <li *ngFor="let art of listofart">
+                {{art}}
+        </li>
+</ul>

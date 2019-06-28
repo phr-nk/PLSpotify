@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import { SpotifyService } from "../services/spotify.service";
+//import {ActivatedRoute} from '@angular/router';
+//import { SpotifyService } from "../services/spotify.service";
+import {ArtistComponent} from '../artist/artist.component';
 
 @Component({
   selector: 'app-artistcompare',
@@ -9,7 +10,26 @@ import { SpotifyService } from "../services/spotify.service";
 })
 export class ArtistcompareComponent implements OnInit {
 
-  constructor(private _spotifyService:SpotifyService,private _route:ActivatedRoute) { }
+  listofart =[]
+  name:string
+  poop = "big poop"
+  constructor() { }
+  addNames()
+  {
+    var inputValue = (<HTMLInputElement>document.getElementById('input1')).value;
+    console.log(inputValue)
+    if(inputValue == ' ' ||  inputValue == '' || inputValue == null)
+    {
+      Error('You must enter a name')
+    }
+    else
+    {
+      this.listofart.push(inputValue)
+      console.log(this.listofart)
+    }
+  
+          
+  }
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true

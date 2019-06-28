@@ -31,8 +31,6 @@ export class ArtistComponent implements OnInit
   public barChartLegend = true;
   public barChartData;
 
-  x = document.getElementById("genrecount");
-  y = document.getElementById("artist-header");
 
   ngOnInit() //when the page is opened
   {
