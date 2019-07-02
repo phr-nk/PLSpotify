@@ -4,5 +4,13 @@
 <ul>
         <li *ngFor="let art of listofart">
                 {{art}}
+                <input type='button' value="remove" (click)="removeName()"/>
         </li>
+        <canvas baseChart *ngIf= "listofart.length > 0"
+                        [datasets]="barChartData"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [legend]="barChartLegend"
+                        [chartType]="barChartType">
+                </canvas>
 </ul>

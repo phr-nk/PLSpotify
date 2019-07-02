@@ -12,7 +12,7 @@ export class ArtistcompareComponent implements OnInit {
 
   listofart =[]
   name:string
-  poop = "big poop"
+  public barChartLabels =[]
   constructor() { }
   addNames()
   {
@@ -25,16 +25,19 @@ export class ArtistcompareComponent implements OnInit {
     else
     {
       this.listofart.push(inputValue)
+      this.barChartLabels.push(inputValue)
       console.log(this.listofart)
     }
-  
-          
+  }
+  removeName()
+  {
+    this.listofart.pop()
+    console.log(this.listofart)
   }
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [

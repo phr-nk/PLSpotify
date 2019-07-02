@@ -48,12 +48,4 @@ export class SpotifyService
 
         return this._http.get(this.artistUrl ,{headers:headers}).pipe(map((res:Response) => res.json()));
     }
-    getGenreCount(id:string,token:string)
-    {
-        this.artistUrl='https://api.spotify.com/v1/artists/'+id;
-        let headers = new Headers();
-        headers.append('Authorization' , 'Bearer ' + token);
-
-        return this._http.get(this.artistUrl ,{headers:headers}).pipe(map((res:Response) => res.json()) ); 
-    }
 }
