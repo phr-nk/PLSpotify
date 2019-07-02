@@ -1,16 +1,17 @@
 <h1>Enter an artist name and press enter</h1>
-<input type="text" id="input1" (keyup.enter) ="addNames()"/>
+<input type="text" id="input1" (keyup.enter) ="addNames(); clearInput(); "/>
 <p>Current Artists: </p>
 <ul>
         <li *ngFor="let art of listofart">
                 {{art}}
                 <input type='button' value="remove" (click)="removeName()"/>
+                
         </li>
-        <canvas baseChart *ngIf= "listofart.length > 0"
+        <canvas baseChart *ngIf= "listofart.length > 0" 
                         [datasets]="barChartData"
                         [labels]="barChartLabels"
                         [options]="barChartOptions"
                         [legend]="barChartLegend"
                         [chartType]="barChartType">
-                </canvas>
+        </canvas>
 </ul>

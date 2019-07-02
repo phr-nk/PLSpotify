@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Artist} from "../../Artist";
 //import {ActivatedRoute} from '@angular/router';
 //import { SpotifyService } from "../services/spotify.service";
 import {ArtistComponent} from '../artist/artist.component';
@@ -10,9 +11,15 @@ import {ArtistComponent} from '../artist/artist.component';
 })
 export class ArtistcompareComponent implements OnInit {
 
-  listofart =[]
+  listofart = []
   name:string
-  public barChartLabels =[]
+  barChartLabels =[]
+  public barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public barChartType = 'bar';
+  public barChartLegend = true;
   constructor() { }
   addNames()
   {
@@ -32,17 +39,15 @@ export class ArtistcompareComponent implements OnInit {
   removeName()
   {
     this.listofart.pop()
+    this.barChartLabels.pop()
     console.log(this.listofart)
   }
-  public barChartOptions = {
-    scaleShowVerticalLines: false,
-    responsive: true
-  };
-  public barChartType = 'bar';
-  public barChartLegend = true;
+  clearInput()
+  {
+    (<HTMLInputElement>document.getElementById('input1')).value = '';
+  }
   public barChartData = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}
   ];
 
   ngOnInit() {
