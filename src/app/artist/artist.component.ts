@@ -40,19 +40,14 @@ export class ArtistComponent implements OnInit
         console.log("ID", id)
        this._spotifyService.getToken()
         .subscribe(data => {
-          this._spotifyService.getArtist(id, data.access_token)
+          this._spotifyService.getArtist(id)
            .subscribe(artist=> {
              this.artist = artist;
              this.genreCount = artist.genres.length;
-             this.barChartData =[ {data: [this.genreCount], label: "Number Of Genres"},
-                                  {data: [artist.popularity], label: 'Popularity'}
-                                ];
-             this.barChartLabels = ["Number Of Genres", 'Popularity'];
              console.log(this.artist);
           })
         })
     })
   }
-  getGenreCount
 
 }
