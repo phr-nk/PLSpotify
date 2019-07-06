@@ -1,6 +1,8 @@
-<h1>Enter an artist name and press enter</h1>
-<input type="text" id="input1" (keyup.enter) ="addNames(); clearInput(); "/>
-<p>Current Artists: </p>
+
+<form class="form-inline my-2 my-lg-0">
+        <input type="text" id="input1" class="form-control" (keyup.enter) ="addNames(); clearInput(); " placeholder="Enter an artist name..."/>
+</form>
+<p *ngIf="listofart.length > 0">Current Artists: </p>
 <ul>
         <li *ngFor="let art of listofart">
                 {{art}}
