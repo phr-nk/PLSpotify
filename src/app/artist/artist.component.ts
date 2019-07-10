@@ -22,15 +22,6 @@ export class ArtistComponent implements OnInit
 
   constructor(private _spotifyService:SpotifyService,private _route:ActivatedRoute) { }
 
-  public barChartOptions = {
-    scaleShowVerticalLines: false,
-    responsive: true
-  };
-  public barChartLabels;
-  public barChartType = 'bar';
-  public barChartLegend = true;
-  public barChartData;
-
 
   ngOnInit() //when the page is opened
   {

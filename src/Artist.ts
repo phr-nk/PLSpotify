@@ -7,5 +7,7 @@ export class Artist
     genres:any; 
     ablums:Album;
     numberofgenres:number;
+    followers:number;
+    popularity: number
 
 }
