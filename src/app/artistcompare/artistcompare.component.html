@@ -1,7 +1,6 @@
 
 <form class="form-inline my-2 my-lg-0">
         <input type="text" id="input1" class="form-control" (keyup.enter) ="addNames(); clearInput(); " placeholder="Enter an artist name..."/>
-        <input type="button" value ="Sumbit" (click)="verifyNames()"/>
 </form>
 <p *ngIf="listofart.length > 0">Current Artists: </p>
 <ul>
@@ -10,6 +9,7 @@
                 <input type='button' value="remove" (click)="removeName()"/>
                 
         </li>
+        <button *ngIf= "listofart.length > 0" type="button" class="btn btn-primary" (click)="verifyNames(); changeButton() " id="sumbitButton"> Sumbit</button>
         <canvas baseChart *ngIf= "listofart.length > 0"
                         [datasets]="barChartData"
                         [labels]="barChartLabels"

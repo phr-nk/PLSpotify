@@ -10,5 +10,11 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/p/*" :{
+    "target": "https://www.instagram.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }

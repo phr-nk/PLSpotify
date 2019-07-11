@@ -31,7 +31,7 @@ export class ArtistcompareComponent implements OnInit {
                   }
   barChartLabels =[]
   barData =[]
-  public barChartData = [{data: this.barData, label:'Followers'}]
+  public barChartData = [{data: this.barData, label:this.possibleLabels.followers}]
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -54,7 +54,6 @@ export class ArtistcompareComponent implements OnInit {
     {
       this.listofart.push(inputValue)
       this.barChartLabels.push(inputValue)
-      //this.fillGraph()
       console.log(this.listofart)
     }
   }
@@ -93,6 +92,11 @@ export class ArtistcompareComponent implements OnInit {
       this.verifyName(this.listofart[i]) 
       console.log(this.verifiedNames)
     }
+  }
+  changeButton()
+  {
+    var elem = (<HTMLInputElement>document.getElementById('sumbitButton'));
+    elem.parentNode.removeChild(elem)
   }
  
   
