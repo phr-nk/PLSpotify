@@ -15,13 +15,13 @@ export class ArtistcompareComponent implements OnInit {
 
   //initialize newArtist as artist object with its member varibles undefined
   newArtist: Artist = {
-    id: undefined,
-    name:undefined,
-    genres:undefined,
+    id: 0,
+    name:'',
+    genres:'',
     ablums:undefined,
-    numberofgenres:undefined,
-    followers:undefined,
-    popularity:undefined
+    numberofgenres:0,
+    followers:0,
+    popularity:0
 
   };
   //bar chart varibles
@@ -29,9 +29,14 @@ export class ArtistcompareComponent implements OnInit {
                    popularity: "Popularity",
                    genrecount: "Number of Genres"
                   }
-  barChartLabels =[]
-  barData =[]
-  public barChartData = [{data: this.barData, label:this.possibleLabels.followers}]
+  barChartLabels = []
+  barDataFollowers =[]
+  barDataPop =[]
+  barDataGenreCount =[]
+  public barChartData = [{data: this.barDataFollowers, label:this.possibleLabels.followers},
+                          {data: this.barDataPop, label:this.possibleLabels.popularity},
+                          {data: this.barDataGenreCount, label:this.possibleLabels.genrecount}
+                        ]
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -53,7 +58,7 @@ export class ArtistcompareComponent implements OnInit {
     else
     {
       this.listofart.push(inputValue)
-      this.barChartLabels.push(inputValue)
+      //this.barChartLabels.push(inputValue)
       console.log(this.listofart)
     }
   }
@@ -61,7 +66,9 @@ export class ArtistcompareComponent implements OnInit {
   {
     this.listofart.pop()
     this.barChartLabels.pop()
-    this.barData.pop()
+    this.barDataFollowers.pop()
+    this.barDataPop.pop()
+    this.barDataGenreCount.pop()
     console.log(this.listofart)
   }
   clearInput()
@@ -71,6 +78,7 @@ export class ArtistcompareComponent implements OnInit {
   verifyName(artistName: string)
   {
     //verify that the name they entered exists
+
     this._spotifyService.getToken()
       .subscribe(res => {
           this._spotifyService.searchMusic(artistName ,'artist' , res.access_token)
@@ -80,7 +88,10 @@ export class ArtistcompareComponent implements OnInit {
               this.newArtist.popularity = res.artists.items[0].popularity
               this.newArtist.numberofgenres = res.artists.items[0].genres.length
               this.verifiedNames.push(this.newArtist)
-              this.barData.push(this.newArtist.followers)
+              this.barChartLabels.push(this.newArtist.name)
+              this.barDataFollowers.push(this.newArtist.followers)
+              this.barDataPop.push(this.newArtist.popularity)
+              this.barDataGenreCount.push(this.newArtist.numberofgenres)
               console.log(this.newArtist)
          })
       })
@@ -96,7 +107,8 @@ export class ArtistcompareComponent implements OnInit {
   changeButton()
   {
     var elem = (<HTMLInputElement>document.getElementById('sumbitButton'));
-    elem.parentNode.removeChild(elem)
+    elem.parentNode.removeChild(elem);
+    return false;
   }
  
   

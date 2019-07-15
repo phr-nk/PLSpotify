@@ -12,7 +12,7 @@
     "changeOrigin": true
   },
   "/p/*" :{
-    "target": "https://www.instagram.com",
+    "target": "https://www.instagram.com/p",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

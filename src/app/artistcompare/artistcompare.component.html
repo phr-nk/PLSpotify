@@ -9,7 +9,7 @@
                 <input type='button' value="remove" (click)="removeName()"/>
                 
         </li>
-        <button *ngIf= "listofart.length > 0" type="button" class="btn btn-primary" (click)="verifyNames(); changeButton() " id="sumbitButton"> Sumbit</button>
+        <button *ngIf= "listofart.length > 0" type="button" class="btn btn-primary" (click)="verifyNames(); changeButton(); " id="sumbitButton"> Sumbit</button>
         <canvas baseChart *ngIf= "listofart.length > 0"
                         [datasets]="barChartData"
                         [labels]="barChartLabels"
