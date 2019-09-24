@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
+
+## Goal
+
+The goal of this project was to develop a web app that can easily access artists using Spotify's API and to easily compare different artist's analytics visually.
+
+## User Interface
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
