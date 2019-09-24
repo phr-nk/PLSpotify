@@ -8,8 +8,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 The goal of this project was to develop a web app that can easily access artists using Spotify's API and to easily compare different artist's analytics visually.
 
 ## User Interface
-
-
+Home page
+![](https://github.com/phr-nk/PLSpotify/blob/master/src/app/FrontPage.png)
+Searching
+![](https://github.com/phr-nk/PLSpotify/blob/master/src/app/search.png)
+Compare
+![](https://github.com/phr-nk/PLSpotify/blob/master/src/app/compare1.png)
+![](https://github.com/phr-nk/PLSpotify/blob/master/src/app/compare2.png)
+![](https://github.com/phr-nk/PLSpotify/blob/master/src/app/compare3.png)
+![](https://github.com/phr-nk/PLSpotify/blob/master/src/app/compare4.png)
 
 ## Development server
 
